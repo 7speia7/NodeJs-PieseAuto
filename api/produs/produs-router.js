@@ -9,7 +9,7 @@ router.get('/',restrict,async (req, res,next) => {
     const foundUser = await User.findById( req.decoded.id ).catch((err) => {
      res.status(500).json({ message: err });
    }); 
-   if(foundUser === true){
+   if(foundUser){
         const produs = await Produs.find(
             { user_id: req.decoded.id }
         ).catch((error) => {
