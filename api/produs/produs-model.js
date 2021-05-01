@@ -29,6 +29,9 @@ const Produs = mongoose.model('Note', produsSchema);
 const find = () => {
     return Produs.find().exec();
   };
+  const findOnlyforUser = (userID) => {
+    return Produs.find({user_id:userID}).exec();
+  };
   const add = (produs) => {
     return new Produs(produs).save();
   };
@@ -49,4 +52,5 @@ const find = () => {
     findById,
     remove,
     update,
+    findOnlyforUser
   };
